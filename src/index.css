@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  --primary-500: #4EC84E;
+  --primary-600: #47B647;
+  --primary-400: #88DA88;
+  --primary-300: #A7E8A7;
+  --primary-20: #EDFAED;
+  --primary-10: #F6FDF6;
+  --grey-900: #0F0F0F;
+  --grey-800: #1A1A1A;
+  --grey-700: #424242;
+  --grey-600: #5B5B5C;
+  --grey-500: #747475;
+  --grey-400: #8E8E8F;
+  --grey-300: #A7A7A8;
+  --grey-200: #C1C1C2;
+  --grey-100: #DBDBDC;
+  --grey-50: #F2F3F5;
+}
+
+/* Hero Grid Background */
+.hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(242, 243, 245, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 243, 245, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 0;
+}
+
+/* Second Fold Background */
+.second-fold-bg {
+  background-image:
+    linear-gradient(rgba(242, 243, 245, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 243, 245, 0.25) 1px, transparent 1px),
+    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.08) 1px, transparent 0);
+  background-size: 40px 40px, 40px 40px, 20px 20px;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+/* Third Fold Background */
+.third-fold-bg {
+  background-image:
+    linear-gradient(rgba(242, 243, 245, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 243, 245, 0.25) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 0;
+}
+
+.timeline-container-glow {
+  position: relative;
+}
+
+.timeline-container-glow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: radial-gradient(ellipse at center, rgba(78, 200, 78, 0.03) 0%, transparent 70%);
+  border-radius: 23px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Glassmorphic Pane Responsive Classes */
+.glassmorphic-text-pane {
+  transform-origin: center;
+}
+
+.glassmorphic-visual-pane {
+  transform-origin: center;
+}
+
+/* Hide grid on mobile devices */
+@media (max-width: 768px) {
+  .hero-grid-bg,
+  .second-fold-bg,
+  .third-fold-bg {
+    background-image: none;
+  }
+  
+  .timeline-container-glow::before {
+    display: none;
+  }
+  
+  .glassmorphic-text-pane {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 90% !important;
+    transform: none !important;
+    margin: 2rem auto;
+    backdrop-filter: blur(20px) !important;
+  }
+  
+  .glassmorphic-visual-pane {
+    position: relative !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 90% !important;
+    transform: none !important;
+    margin: 2rem auto;
+    backdrop-filter: blur(20px) !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .glassmorphic-text-pane {
+    transform: rotate(-1.5deg) !important;
+  }
+  
+  .glassmorphic-visual-pane {
+    transform: rotate(2deg) !important;
+  }
+}
+
+/* Third Fold Timeline Responsive */
+@media (max-width: 1024px) {
+  .third-fold-timeline {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .third-fold-timeline {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  
+  .third-fold-timeline .progress-line {
+    display: none;
+  }
+  
+  .third-fold-timeline .vertical-line {
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(136, 218, 136, 0.6) 0%, rgba(78, 200, 78, 0.6) 100%);
+  }
+}
